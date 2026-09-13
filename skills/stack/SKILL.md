@@ -1,5 +1,5 @@
 ---
-name: yuri-stack
+name: stack
 description: What Yuri Mikhin already knows and how he verifies work — the frontend checking stack he runs on every change, how he reviews layout across viewports, and the product side of his own plugins and bots. Meant to be always on (SessionStart hook), not trigger-loaded.
 ---
 

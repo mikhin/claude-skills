@@ -1,5 +1,5 @@
 ---
-name: yuri-review
+name: review
 description: How Yuri Mikhin wants bugs investigated and review findings presented — the "why didn't the tests catch it" rule, test-before-fix order, the numbered-findings format with file:line anchors and per-item verdicts, and how to arbitrate another model's review. Triggers — "review this", "findings", "what do you think of this review", "why is this flaky", "a bug in production", «ревью», «находки», «почему тесты не поймали», «что думаешь про это ревью».
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: yuri-comms
+name: comms
 description: How Yuri Mikhin writes to people outside the code — clients, product owners, teammates, plugin users. Draft first, never send; no blame, no hinted defects, no promises; one question instead of a pile of comments; copy-paste ready without quote marks. Triggers — "write to <person>", "reply to the client", "post a comment on the ticket", "send it in chat", "draft an answer", «напиши <имя>», «ответь клиенту», «отпиши в тикет», «черновик письма».
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: yuri-decisions
+name: decisions
 description: How Yuri Mikhin makes decisions — the questions he asks before accepting a change, where he expects answers to be looked up, and what he rejects on sight. Meant to be always on (SessionStart hook), not trigger-loaded.
 ---
 
