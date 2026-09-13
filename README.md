@@ -7,6 +7,8 @@ My Claude Code skills, in one repo.
 | [`cx`](skills/cx) | Cross-model review of a diff, commit or plan through the Codex CLI. Codex reads, Claude judges. |
 | [`consensus`](skills/consensus) | Adversarial multi-agent debate: roles get mutually exclusive hypotheses and must refute each other, exit on agreement. |
 | [`multi-agent-research`](skills/multi-agent-research) | Four parallel sub-agents research a topic from different angles, one synthesised report. |
+| [`all-check`](skills/all-check) | Run every check the project has except e2e, scoped to the files of the current PR, and report one line per check. |
+| [`create-tickets`](skills/create-tickets) | Turn a finding or a plan into properly shaped tickets, through the tracker's MCP or as text. |
 | [`yuri-decisions`](skills/yuri-decisions) | How I decide: answer the why, look it up before inventing it, fix the class not the call site. |
 | [`yuri-review`](skills/yuri-review) | How I want bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts. |
 | [`yuri-comms`](skills/yuri-comms) | How I write to people: draft first, no blame, no hinted defects, one question instead of a pile of comments. |
