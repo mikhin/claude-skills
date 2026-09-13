@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "create-tickets",
+  "owner": "coalesce-labs",
+  "repo": "catalyst",
+  "path": "plugins/playground/pm-ops/skills/create-tickets",
+  "branch": "main",
+  "sha": "196417a76be2e48fbe0ebdfe3b1c3dd7d1eba780",
+  "source": "manual"
+}
