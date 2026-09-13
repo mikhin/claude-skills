@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "mikhin",
+  "name": "claude-skills",
   "description": "Yuri Mikhin's Claude Code skills, in one plugin.",
   "owner": {
     "name": "Yuri Mikhin",

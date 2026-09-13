@@ -19,7 +19,7 @@ My Claude Code skills, in one plugin.
 
 ```
 /plugin marketplace add mikhin/claude-skills
-/plugin install mikhin@mikhin
+/plugin install mikhin@claude-skills
 ```
 
 Skills then show up namespaced: `mikhin:cx`, `mikhin:review`, `mikhin:all-check`.
