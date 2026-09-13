@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-consensus",
-  "version": "1.0.0",
-  "description": "Adversarial multi-agent debate: roles get mutually exclusive hypotheses and must refute each other, exit on agreement.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}

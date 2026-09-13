@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-comms",
-  "version": "1.0.0",
-  "description": "How Yuri Mikhin writes to people: draft first, no blame, no hinted defects, one question instead of a pile of comments.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}

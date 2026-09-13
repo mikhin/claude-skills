@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-multi-agent-research",
-  "version": "1.0.0",
-  "description": "Four parallel sub-agents research a topic from different angles, synthesised into one report.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}

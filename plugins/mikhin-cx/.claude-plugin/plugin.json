@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-cx",
-  "version": "1.0.0",
-  "description": "Cross-model review of a diff, commit or plan through the Codex CLI. Codex reads, Claude judges.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-review",
-  "version": "1.0.0",
-  "description": "How Yuri Mikhin wants bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}

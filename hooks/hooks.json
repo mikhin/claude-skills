@@ -8,7 +8,7 @@
             "type": "command",
             "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/autoload.sh\"",
             "timeout": 5,
-            "statusMessage": "Loading decisions..."
+            "statusMessage": "Loading always-on skills..."
           }
         ]
       }

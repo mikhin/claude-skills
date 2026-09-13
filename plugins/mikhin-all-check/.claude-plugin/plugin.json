@@ -1,9 +1,0 @@
-{
-  "name": "mikhin-all-check",
-  "version": "1.0.0",
-  "description": "Run every check the project has except e2e, scoped to the files of the current PR, one line per check.",
-  "author": {
-    "name": "Yuri Mikhin",
-    "url": "https://github.com/mikhin"
-  }
-}
