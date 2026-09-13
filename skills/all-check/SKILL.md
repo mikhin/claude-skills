@@ -1,54 +1,54 @@
 ---
 name: all-check
-description: Прогнать все проверки проекта, кроме e2e, по файлам текущего PR (ветки). Триггеры — «/all-check», «запусти все проверки», «все проверки кроме e2e», «прогони проверки по файлам PR», «all checks».
+description: Run every check the project has except e2e, scoped to the files of the current PR or branch, and report one line per check. Triggers — "/all-check", "run all the checks", "all checks except e2e", "check the PR files", «запусти все проверки», «прогони проверки по файлам PR».
 ---
 
 # all-check
 
-Цель: одним заходом прогнать всё, что проект умеет проверять, кроме e2e, и отчитаться коротко —
-по строке на проверку, находки только по файлам PR.
+Goal: in one pass, run everything this project knows how to check except e2e, and report briefly —
+one line per check, findings limited to the files of the PR.
 
-## 1. Файлы PR
+## 1. The PR files
 
-1. База: `gh pr view --json baseRefName -q .baseRefName`; если PR нет — ветка `release/*`, от которой
-   отведена текущая (`git branch -r | grep release/`), иначе `main`.
-2. Список: `git diff --name-only origin/<base>...HEAD`, плюс незакоммиченное (`git status --short`).
-   Сохранить в файл в scratchpad, дальше использовать его.
-3. В zsh переменная не режется по словам: передавать список как `${=FILES}` или через `xargs`.
+1. Base: `gh pr view --json baseRefName -q .baseRefName`; with no PR, the `release/*` branch the
+   current one was cut from (`git branch -r | grep release/`), otherwise `main`.
+2. List: `git diff --name-only origin/<base>...HEAD` plus uncommitted work (`git status --short`).
+   Save it to a file in the scratchpad and use that file from then on.
+3. In zsh a variable is not word-split: pass the list as `${=FILES}` or through `xargs`.
 
-## 2. Какие проверки
+## 2. Which checks
 
-Прочитать `scripts` в `package.json` и разложить по категориям. Запускать всё, что есть из списка,
-и ничего не выдумывать: нет скрипта — нет проверки.
+Read `scripts` in `package.json` and sort them into the categories below. Run everything that is
+there and invent nothing: no script, no check.
 
-| Категория | Типичные скрипты | Скоуп |
+| Category | Typical scripts | Scope |
 | --- | --- | --- |
-| lint | `lint:check`, oxlint, eslint | по файлам PR |
-| формат | `format:check`, oxfmt, prettier | по файлам PR |
-| типы | `tsc`, `typecheck` | весь проект |
-| юнит-тесты | `test`, vitest, jest | `vitest run --changed origin/<base>` (связанные тесты); иначе спеки PR + спеки изменённых исходников |
-| мутационные | `mutate`, stryker | `--mutate 'a.ts,b.ts'` одним списком через запятую по изменённым файлам, попадающим в `mutate` конфига (обычно services/stores/lib); всегда `--force` — инкрементальный кэш врёт, когда файл только получил спеку |
-| сборка | `build` | весь проект |
-| дубли | `jscpd`, `dup` | весь проект, вывод отфильтровать по базовым именам файлов PR |
-| дрифт архитектуры | `drift`, `arch*` | весь проект, вывод целиком (он короткий) |
-| мёртвый код и экспорты | `knip`, `dead*` | весь проект, вывод отфильтровать по файлам PR, итоговые строки показать |
-| здоровье React | `react-doctor` | весь проект, только итог |
+| lint | `lint:check`, oxlint, eslint | PR files |
+| format | `format:check`, oxfmt, prettier | PR files |
+| types | `tsc`, `typecheck` | whole project |
+| unit tests | `test`, vitest, jest | `vitest run --changed origin/<base>` (related tests); otherwise the PR's specs plus the specs of changed sources |
+| mutation | `mutate`, stryker | `--mutate 'a.ts,b.ts'` as one comma-separated list of changed files that fall inside the config's `mutate` glob (usually services/stores/lib); always `--force` — the incremental cache lies when a file has only just gained a spec |
+| build | `build` | whole project |
+| duplication | `jscpd`, `dup` | whole project, filter the output by the base names of the PR files |
+| architecture drift | `drift`, `arch*` | whole project, show the output in full (it is short) |
+| dead code and exports | `knip`, `dead*` | whole project, filter by PR files, show the summary lines |
+| React health | `react-doctor` | whole project, summary only |
 
-Пропускать: всё с `e2e`, `playwright`, `staging`, `codegen`, `dev`, `deploy`, `strip-comments`,
-`*:fix`, `*:write`, `openapi-ts`, `mutate` без изменённых сервисов.
+Skip: anything matching `e2e`, `playwright`, `staging`, `codegen`, `dev`, `deploy`,
+`strip-comments`, `*:fix`, `*:write`, `openapi-ts`, and `mutate` when no service files changed.
 
-## 3. Как запускать
+## 3. How to run them
 
-- Лёгкие (lint, формат, tsc) — одним вызовом. Тяжёлые (vitest, stryker, build, сканеры) —
-  параллельными вызовами, но никогда вместе с e2e: они друг друга роняют по CPU.
-- `timeout` на macOS нет; ограничивать таймаутом инструмента, для Stryker и build — 10 минут.
-- Stryker печатает выживших по всему инкрементальному набору: смотреть только строки таблицы
-  и `[Survived]`-блоки с файлами PR. Полный вывод класть в файл в scratchpad и grep-ать.
-- Выживший мутант — это недостающий ассерт, не цифра. Эквивалентные оставлять и назвать.
+- Light ones (lint, format, tsc) in a single call. Heavy ones (vitest, stryker, build, scanners) in
+  parallel calls, but never alongside e2e: they starve each other on CPU.
+- macOS has no `timeout`; cap them with the tool's own timeout, 10 minutes for Stryker and build.
+- Stryker prints survivors for the whole incremental set: read only the table rows and the
+  `[Survived]` blocks for PR files. Put the full output in a scratchpad file and grep it.
+- A surviving mutant is a missing assertion, not a number. Leave equivalent ones and name them.
 
-## 4. Отчёт
+## 4. The report
 
-Таблица: проверка → результат → находки по файлам PR (одной строкой). Отдельной строкой —
-находки, которые были до PR (проверить `git blame` или прогон на базе), их не чинить молча.
-Ничего не править без вопроса, кроме форматирования собственных файлов. Если всё чисто —
-одна фраза, без таблицы.
+A table: check → result → findings in PR files, one line each. On a separate line, findings that
+predate the PR (confirm with `git blame` or a run on the base) — do not fix those silently.
+Change nothing without asking, except formatting of files the PR already touches. If everything is
+clean, say so in one sentence, no table.

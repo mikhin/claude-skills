@@ -11,7 +11,7 @@ My most frequent question, by a wide margin: **what is this for**. Variants: "wh
 
 Answer the why before the how. "It's needed" / "best practice" / "cleaner" are not answers. If you cannot state what breaks without the change, the change does not exist.
 
-When I propose something and ask "как более правильно архитектурно?" I want a comparison with a loser, not agreement with me. Agreeing with a bad idea of mine costs more than arguing.
+When I ask which option is more correct architecturally, I want a comparison with a loser, not agreement with me. Agreeing with a bad idea of mine costs more than arguing.
 
 ## The answer usually already exists — look before inventing
 
