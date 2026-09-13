@@ -1,0 +1,10 @@
+{
+  "name": "mikhin-stack",
+  "version": "1.0.0",
+  "description": "What Yuri Mikhin already knows and how work gets verified: the checking stack, viewport review, the product side of his own plugins and bots. Autoloads into every session.",
+  "author": {
+    "name": "Yuri Mikhin",
+    "url": "https://github.com/mikhin"
+  },
+  "hooks": "./hooks/hooks.json"
+}

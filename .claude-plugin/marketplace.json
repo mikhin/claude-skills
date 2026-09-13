@@ -1,16 +1,58 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-skills",
-  "description": "Yuri Mikhin's Claude Code skills, in one plugin.",
+  "description": "Yuri Mikhin's Claude Code skills. Each one installs on its own.",
   "owner": {
     "name": "Yuri Mikhin",
     "url": "https://github.com/mikhin"
   },
   "plugins": [
     {
-      "name": "mikhin",
-      "description": "Review, research and working-style skills: cx, consensus, multi-agent-research, all-check, decisions, review, comms, stack.",
-      "source": "./",
+      "name": "mikhin-cx",
+      "description": "Cross-model review of a diff, commit or plan through the Codex CLI. Codex reads, Claude judges.",
+      "source": "./plugins/mikhin-cx",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-consensus",
+      "description": "Adversarial multi-agent debate: roles get mutually exclusive hypotheses and must refute each other, exit on agreement.",
+      "source": "./plugins/mikhin-consensus",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-multi-agent-research",
+      "description": "Four parallel sub-agents research a topic from different angles, synthesised into one report.",
+      "source": "./plugins/mikhin-multi-agent-research",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-all-check",
+      "description": "Run every check the project has except e2e, scoped to the files of the current PR, one line per check.",
+      "source": "./plugins/mikhin-all-check",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-decisions",
+      "description": "How Yuri Mikhin decides: answer the why, look it up before inventing it, fix the class not the call site. Autoloads into every session.",
+      "source": "./plugins/mikhin-decisions",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-review",
+      "description": "How Yuri Mikhin wants bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts.",
+      "source": "./plugins/mikhin-review",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-comms",
+      "description": "How Yuri Mikhin writes to people: draft first, no blame, no hinted defects, one question instead of a pile of comments.",
+      "source": "./plugins/mikhin-comms",
+      "category": "productivity"
+    },
+    {
+      "name": "mikhin-stack",
+      "description": "What Yuri Mikhin already knows and how work gets verified: the checking stack, viewport review, the product side of his own plugins and bots. Autoloads into every session.",
+      "source": "./plugins/mikhin-stack",
       "category": "productivity"
     }
   ]
