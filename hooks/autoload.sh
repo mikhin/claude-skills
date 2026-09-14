@@ -4,7 +4,7 @@
 # Pick a different set with AUTOLOAD_SKILLS="a b c".
 set -euo pipefail
 root="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-for name in ${AUTOLOAD_SKILLS:-decisions stack}; do
+for name in ${AUTOLOAD_SKILLS:-decisions stack answers}; do
   file="$root/skills/$name/SKILL.md"
   [ -f "$file" ] || continue
   awk 'BEGIN{fm=0} /^---$/{fm++; next} fm>=2' "$file"
