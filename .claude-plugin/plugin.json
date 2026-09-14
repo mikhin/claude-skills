@@ -5,6 +5,5 @@
   "author": {
     "name": "Yuri Mikhin",
     "url": "https://github.com/mikhin"
-  },
-  "hooks": "./hooks/hooks.json"
+  }
 }
