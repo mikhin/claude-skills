@@ -12,9 +12,8 @@ My Claude Code skills, in one plugin.
 | [`review`](skills/review) | How I want bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts. |
 | [`comms`](skills/comms) | How I write to people: draft first, no blame, no hinted defects, one question instead of a pile of comments. |
 | [`stack`](skills/stack) | What I already know and how work gets verified: the checking stack, viewport review, the product side of my own plugins and bots. |
-| [`answers`](skills/answers) | How answers are shaped in chat: a table when there is more than one thing, the verdict in its own cell, one question at a time. |
 
-`decisions`, `review`, `comms` and `stack` were extracted from ~1.4 GB of my own Claude Code session logs — the corrections I actually make, not aspirations. `answers` came from the same place, one live session at a time.
+`decisions`, `review`, `comms` and `stack` were extracted from ~1.4 GB of my own Claude Code session logs — the corrections I actually make, not aspirations.
 
 ## Install
 
@@ -27,8 +26,8 @@ Skills then show up namespaced: `mikhin:cx`, `mikhin:review`, `mikhin:all-check`
 
 ## Always-on skills
 
-`decisions`, `stack` and `answers` describe constants, so they are useless behind a trigger. The
-plugin ships a `SessionStart` hook that prints them into every session instead — about 2k tokens.
+`decisions` and `stack` describe constants, so they are useless behind a trigger. The
+plugin ships a `SessionStart` hook that prints them into every session instead.
 Pick a different set with `AUTOLOAD_SKILLS="a b"`.
 
 ## License
