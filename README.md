@@ -1,12 +1,9 @@
 # claude-skills
 
-My Claude Code skills, in one plugin.
+My personal Claude Code skills, in one plugin. The general-purpose ones (`cx`, `consensus`, `multi-agent-research`) live in [mikhin/agent-skills](https://github.com/mikhin/agent-skills).
 
 | Skill | What it does |
 | --- | --- |
-| [`cx`](skills/cx) | Cross-model review of a diff, commit or plan through the Codex CLI. Codex reads, Claude judges. |
-| [`consensus`](skills/consensus) | Adversarial multi-agent debate: roles get mutually exclusive hypotheses and must refute each other, exit on agreement. |
-| [`multi-agent-research`](skills/multi-agent-research) | Four parallel sub-agents research a topic from different angles, one synthesised report. |
 | [`all-check`](skills/all-check) | Run every check the project has except e2e, scoped to the files of the current PR, and report one line per check. |
 | [`decisions`](skills/decisions) | How I decide: answer the why, look it up before inventing it, fix the class not the call site. |
 | [`review`](skills/review) | How I want bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts. |
@@ -17,20 +14,12 @@ My Claude Code skills, in one plugin.
 
 ## Install
 
-Any agent, via [skills.sh](https://skills.sh):
-
-```
-npx skills add mikhin/claude-skills
-```
-
-Claude Code, as a plugin:
-
 ```
 /plugin marketplace add mikhin/claude-skills
 /plugin install mikhin@claude-skills
 ```
 
-Skills then show up namespaced: `mikhin:cx`, `mikhin:review`, `mikhin:all-check`.
+Skills then show up namespaced: `mikhin:review`, `mikhin:all-check`.
 
 ## Always-on skills
 

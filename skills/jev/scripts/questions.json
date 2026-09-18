@@ -1,0 +1,36 @@
+{
+  "bug_risk": {
+    "type": "score",
+    "instructions": "How likely is this diff to introduce a bug a reviewer would have to catch?",
+    "criteria": [
+      "Cosmetic or mechanical change, no behaviour change",
+      "Behaviour change that is straightforward and self-checking",
+      "Behaviour change with edge cases or state that a reviewer must trace",
+      "Likely wrong: inverted condition, off-by-one, lost error handling, or a silent fallback"
+    ]
+  },
+  "logic_in_component": {
+    "type": "boolean",
+    "instructions": "Does the diff add business logic to a UI component or page: branching on domain values, arithmetic, building an API request, deriving a field from list position?",
+    "criteria": {
+      "true": "Yes, such logic is added or grown inside a component or page file",
+      "false": "No, the logic lives in a service, store or lib, or nothing of the kind is added"
+    }
+  },
+  "missing_test": {
+    "type": "boolean",
+    "instructions": "Does the diff change a pure function or service behaviour without a matching spec change in the same diff (see specChangedInSameDiff)?",
+    "criteria": {
+      "true": "A service, store or lib behaviour changed and no spec was touched",
+      "false": "A spec was touched, or the change carries no testable behaviour"
+    }
+  },
+  "published_snapshot": {
+    "type": "boolean",
+    "instructions": "Does the diff write to, mutate or delete a published schedule snapshot instead of the draft?",
+    "criteria": {
+      "true": "A published snapshot is modified or removed",
+      "false": "Only the draft is written, or scheduling is not touched"
+    }
+  }
+}

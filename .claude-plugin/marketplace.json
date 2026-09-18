@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "mikhin",
-      "description": "Review, research and working-style skills: cx, consensus, multi-agent-research, all-check, decisions, review, comms, stack.",
+      "description": "Working-style skills: all-check, decisions, review, comms, stack.",
       "source": "./",
       "category": "productivity"
     }
