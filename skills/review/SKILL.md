@@ -43,9 +43,21 @@ Fix in this PR what breaks the user on the ticket's path, and what the fix itsel
 
 Only a finding that is both confident and reaches on a normal path. A race that needs impossible timing, a limit the system never sees, a style preference: comment, not blocker. The merge gate is CI, the touched specs and Stryker on the changed lines. "The review found nothing" is never the gate — a high-effort review is built to keep finding.
 
-## When the loop stops
+## Every round ends with a verdict
 
-Two rounds. Round two checks round one's list, it does not re-review from scratch. If round two finds as much as round one, the loop is not converging: stop, merge on the gate above, and ask what about the process let it through — that question beats round three.
+One line, one of three, then one sentence why:
+
+```
+🟢 merge — nothing blocking; N comments, none required.
+🟡 fix then merge — items 1–3 are required, the rest are comments.
+🔴 do not merge — <the one thing that breaks the user>.
+```
+
+No verdict, no review. A list without a decision leaves the decision to round N+1.
+
+## Round two is a delta
+
+Round two takes round one's list and reports it item by item: closed by <commit>, still open, or new. It does not re-review from scratch, and it does not raise again what was rejected with a fact. There is no round three: if round two finds as much as round one, the loop is not converging — merge on the gate above and ask what about the process let it through.
 
 ## Flaky is a finding
 
