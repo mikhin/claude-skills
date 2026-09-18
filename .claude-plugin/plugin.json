@@ -1,6 +1,6 @@
 {
   "name": "mikhin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Yuri Mikhin's Claude Code skills: a full pre-PR check pass, and four skills extracted from his own session logs.",
   "author": {
     "name": "Yuri Mikhin",
