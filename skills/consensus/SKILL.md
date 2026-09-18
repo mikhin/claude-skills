@@ -1,6 +1,6 @@
 ---
 name: consensus
-description: Adversarial multi-agent debate until consensus. Roles get mutually exclusive hypotheses and must refute each other; the synthesizer is the session itself (Opus) over the agents (Sonnet); exit on agreement, not on round count. Use when the answer is contested and the cost of a mistake is high: how many of what is needed, what is in scope, which option is right, what is decided versus what only looks decided. Triggers: "let the agents argue", "debate until consensus", "several rounds", "check from several sides", "adversarial", «спор агентов», «до консенсуса», «пусть поспорят», «проверь с разных сторон», «состязательно».
+description: 'Adversarial multi-agent debate until consensus. Roles get mutually exclusive hypotheses and must refute each other; the synthesizer is the session itself (Opus) over the agents (Sonnet); exit on agreement, not on round count. Use when the answer is contested and the cost of a mistake is high: how many of what is needed, what is in scope, which option is right, what is decided versus what only looks decided. Triggers: "let the agents argue", "debate until consensus", "several rounds", "check from several sides", "adversarial", «спор агентов», «до консенсуса», «пусть поспорят», «проверь с разных сторон», «состязательно».'
 disable-model-invocation: false
 ---
 

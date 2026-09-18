@@ -17,6 +17,14 @@ My Claude Code skills, in one plugin.
 
 ## Install
 
+Any agent, via [skills.sh](https://skills.sh):
+
+```
+npx skills add mikhin/claude-skills
+```
+
+Claude Code, as a plugin:
+
 ```
 /plugin marketplace add mikhin/claude-skills
 /plugin install mikhin@claude-skills
