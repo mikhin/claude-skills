@@ -6,7 +6,7 @@ My personal Claude Code skills, in one plugin. The general-purpose ones (`cx`, `
 | --- | --- |
 | [`all-check`](skills/all-check) | Run every check the project has except e2e, scoped to the files of the current PR, and report one line per check. |
 | [`decisions`](skills/decisions) | How I decide: answer the why, look it up before inventing it, fix the class not the call site. |
-| [`review`](skills/review) | How I want bugs and findings handled: why didn't the tests catch it, failing test before fix, anchored findings, per-item verdicts, what blocks a merge, two rounds and stop. |
+| [`review`](skills/review) | `/review`: runs the built-in code-review at medium, judges every finding against the code, ends with a merge verdict. Plus how I want bugs handled: why didn't the tests catch it, failing test before fix, two rounds and stop. |
 | [`comms`](skills/comms) | How I write to people: draft first, no blame, no hinted defects, one question instead of a pile of comments. |
 | [`stack`](skills/stack) | What I already know and how work gets verified: the checking stack, viewport review, the product side of my own plugins and bots. |
 

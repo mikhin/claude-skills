@@ -1,9 +1,13 @@
 ---
 name: review
-description: How Yuri Mikhin wants bugs investigated and review findings handled — the "why didn't the tests catch it" rule, test-before-fix order, numbered findings with file:line anchors and per-item verdicts, what may block a merge, and when a review loop stops. Triggers — "review this", "findings", "what do you think of this review", "why is this flaky", "a bug in production", "another round", «ревью», «находки», «почему тесты не поймали», «ещё раунд».
+description: Review the current branch, a PR or a commit — runs the built-in code-review at medium, then judges every finding against the code (accepted / rejected / ticket) and ends with a merge verdict. Also how Yuri Mikhin wants bugs investigated — the "why didn't the tests catch it" rule, test-before-fix order, anchored findings, what may block a merge, and when a review loop stops. Triggers — "/review", "review this", "findings", "what do you think of this review", "why is this flaky", "a bug in production", "another round", «ревью», «находки», «почему тесты не поймали», «ещё раунд».
 ---
 
 # Reviewing and debugging with me
+
+## Running a review
+
+`/review [target]` with no findings in hand: run the built-in `code-review` skill at `medium` on the target (default: the current branch against its PR base), wait for its list, then arbitrate it below and close with a verdict. `medium` on purpose: `high` is built to keep finding and is a one-off audit, not a gate. Findings someone else brings (Copilot, Codex, a teammate) skip the run and go straight to arbitration.
 
 ## Every bug ends with: why didn't the tests catch it?
 
