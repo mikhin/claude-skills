@@ -7,7 +7,7 @@ description: Review the current branch, a PR or a commit — runs the built-in c
 
 ## Running a review
 
-`/review [target]` with no findings in hand: run the built-in `code-review` skill at `medium` on the target (default: the current branch against its PR base), wait for its list, then arbitrate it below and close with a verdict. `medium` on purpose: `high` is built to keep finding and is a one-off audit, not a gate. Findings someone else brings (Copilot, Codex, a teammate) skip the run and go straight to arbitration.
+`/review [target]` with no findings in hand: run the built-in `code-review` skill with the level first, then the target — `medium 120` for a PR, `medium` alone for the current branch against its PR base. A level after the target is ignored and the last typed level is reused; if the result opens with "Reusing <level>" and it is not `medium`, rerun before arbitrating. Wait for its list, then arbitrate it below and close with a verdict. `medium` on purpose: `high` is built to keep finding and is a one-off audit, not a gate. Findings someone else brings (Copilot, Codex, a teammate) skip the run and go straight to arbitration.
 
 ## Every bug ends with: why didn't the tests catch it?
 
