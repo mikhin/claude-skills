@@ -13,7 +13,7 @@ Cheap triage of a PR's files before a human or a model reads them. Jev does not 
 bash "$CLAUDE_PLUGIN_ROOT/skills/jev/scripts/jev-diff.sh" [base-ref]
 ```
 
-Needs `AI_GATEWAY_API_KEY` in the environment (a Vercel AI Gateway key of the team that pays), `jq`, `gh`. Base resolves like all-check: PR base, else the `release/*` branch, else `main`. Specs, `src/api/` and lockfiles are skipped; each remaining file goes in as its own diff, capped at 60 KB.
+Takes `AI_GATEWAY_API_KEY` (a Vercel AI Gateway key of the team that pays) from the environment, else from 1Password at `op://Personal/Vercel AI Gateway/credential`; needs `jq`, `gh`, `op`. Base resolves like all-check: PR base, else the `release/*` branch, else `main`. Specs, `src/api/` and lockfiles are skipped; each remaining file goes in as its own diff, capped at 60 KB.
 
 Questions live in `scripts/questions.json`; a repo can override them with `.jev-questions.json` at its root.
 

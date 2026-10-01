@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Scores every changed file of the current branch with typesafe-ai/jev via Vercel AI Gateway.
 # Usage: jev-diff.sh [base-ref]   (base defaults to the PR base, else the release/* branch, else main)
-# Needs AI_GATEWAY_API_KEY, jq, curl. Questions: ./questions.json, overridable by .jev-questions.json in the repo root.
+# Needs AI_GATEWAY_API_KEY (else reads it from 1Password via op), jq, curl. Questions: ./questions.json, overridable by .jev-questions.json in the repo root.
 set -euo pipefail
 
-: "${AI_GATEWAY_API_KEY:?AI_GATEWAY_API_KEY is not set}"
+AI_GATEWAY_API_KEY="${AI_GATEWAY_API_KEY:-$(op read 'op://Personal/Vercel AI Gateway/credential')}"
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 root="$(git rev-parse --show-toplevel)"
 questions_file="$root/.jev-questions.json"
