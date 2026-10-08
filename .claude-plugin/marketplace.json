@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "mikhin",
+      "name": "workstyle",
       "description": "Working-style skills: all-check, decisions, review, comms, stack.",
       "source": "./",
       "category": "productivity"

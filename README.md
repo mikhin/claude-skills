@@ -15,11 +15,11 @@ My personal Claude Code skills, in one plugin. The general-purpose ones (`cx`, `
 ## Install
 
 ```
-/plugin marketplace add mikhin/claude-skills
-/plugin install mikhin@claude-skills
+/plugin marketplace add mikhin/claude-plugins
+/plugin install workstyle@mikhin
 ```
 
-Skills then show up namespaced: `mikhin:review`, `mikhin:all-check`.
+Skills then show up namespaced: `workstyle:review`, `workstyle:all-check`.
 
 ## Always-on skills
 
