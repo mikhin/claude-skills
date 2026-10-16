@@ -1,13 +1,13 @@
 ---
 name: review
-description: Review the current branch, a PR or a commit — runs the built-in code-review at medium, then judges every finding against the code (accepted / rejected / ticket) and ends with a merge verdict. Also how Yuri Mikhin wants bugs investigated — the "why didn't the tests catch it" rule, test-before-fix order, anchored findings, what may block a merge, and when a review loop stops. Triggers — "/review", "review this", "findings", "what do you think of this review", "why is this flaky", "a bug in production", "another round", «ревью», «находки», «почему тесты не поймали», «ещё раунд».
+description: Review the current branch, a PR or a commit — runs the built-in code-review at medium and Codex side by side, then judges every finding against the code (accepted / rejected / ticket) and ends with a merge verdict. Also how Yuri Mikhin wants bugs investigated — the "why didn't the tests catch it" rule, test-before-fix order, anchored findings, what may block a merge, and when a review loop stops. Triggers — "/review", "review this", "findings", "what do you think of this review", "why is this flaky", "a bug in production", "another round", «ревью», «находки», «почему тесты не поймали», «ещё раунд».
 ---
 
 # Reviewing and debugging with me
 
 ## Running a review
 
-`/review [target]` with no findings in hand: run the built-in `code-review` skill with the level first, then the target — `medium 120` for a PR, `medium` alone for the current branch against its PR base. A level after the target is ignored and the last typed level is reused; if the result opens with "Reusing <level>" and it is not `medium`, rerun before arbitrating. Wait for its list, then arbitrate it below and close with a verdict. `medium` on purpose: `high` is built to keep finding and is a one-off audit, not a gate. Findings someone else brings (Copilot, Codex, a teammate) skip the run and go straight to arbitration.
+`/review [target]` with no findings in hand: run the built-in `code-review` skill with the level first, then the target — `medium 120` for a PR, `medium` alone for the current branch against its PR base. A level after the target is ignored and the last typed level is reused; if the result opens with "Reusing <level>" and it is not `medium`, rerun before arbitrating. Alongside it, start Codex on the same target in the background, exactly as the Running section of `agent-skills:codex-code-review` says. Skip Codex in one line when that skill or the `codex` CLI is missing, or the diff is trivial. Wait for both lists, merge duplicates, then arbitrate them below as one list and close with a verdict. Tag each item `claude`, `codex` or `both`: the tags show whether Codex brings accepted findings that Claude missed. `medium` on purpose: `high` is built to keep finding and is a one-off audit, not a gate. Findings someone else brings (Copilot, Codex, a teammate) skip the run and go straight to arbitration.
 
 ## Every bug ends with: why didn't the tests catch it?
 
